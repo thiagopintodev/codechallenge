@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App7</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application" %>
+    <%= render "/layouts/application/head" %>
   </head>
 
   <body>
+  	<%= render "/#{current_role}/navbar" %>
+  	<%= render "/layouts/application/alertbar" %>
+
     <%= yield %>
   </body>
 </html>

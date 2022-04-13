@@ -28,3 +28,12 @@ group :development do
   # gem "spring"
 end
 
+group :test do
+  gem "capybara", "~> 3.36"
+end
+
+gem "devise", "~> 4.8"
+
+
+
+gem "importmap-rails", "~> 1.0"
