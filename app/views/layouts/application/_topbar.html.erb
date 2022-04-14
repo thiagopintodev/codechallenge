@@ -1,0 +1,7 @@
+<ul class="nav nav-pills">
+	<% navbar_links.each do |title, path, options| %>
+		<li class="nav-item">
+			<%= navbar_link_to title, path, options %>
+		</li>
+	<% end %>
+</ul>

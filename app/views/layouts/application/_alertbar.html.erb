@@ -1,4 +1,2 @@
-<div>
-	<%= content_tag(:p, flash[:notice], class: 'notice') if flash[:notice] %>
-	<%= content_tag(:p, flash[:alert], class: 'alert') if flash[:alert] %>
-</div>
+<%= content_tag :div, flash[:notice], class:"my-3 alert alert-success", role: "alert" if flash[:notice] %>
+<%= content_tag :div, flash[:alert], class:"my-3 alert alert-danger", role: "alert" if flash[:alert] %>
