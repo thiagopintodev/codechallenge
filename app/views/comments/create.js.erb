@@ -1,0 +1,6 @@
+var html = "<%= j render @comment %>";
+document.getElementById('comments').insertAdjacentHTML('AfterBegin', html);
+
+var modal = document.getElementById('modal');
+bootstrap.Modal.getOrCreateInstance(modal).hide();
+modal.innerHTML = '';

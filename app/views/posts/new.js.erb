@@ -1,0 +1,4 @@
+var html = "<%= j render '/posts/new', post: @post %>";
+var modal = document.getElementById('modal');
+modal.innerHTML = html;
+bootstrap.Modal.getOrCreateInstance(modal).show();

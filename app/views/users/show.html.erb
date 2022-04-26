@@ -1,0 +1,15 @@
+<h1>User</h1>
+
+<%= render @user %>
+
+<h2>Recent Posts</h2>
+
+<% @posts.each do |post| %>
+	<%= render post %>
+<% end %>
+
+<h2>Recent Comments</h2>
+
+<% @comments.each do |comment| %>
+	<%= render comment %>
+<% end %>

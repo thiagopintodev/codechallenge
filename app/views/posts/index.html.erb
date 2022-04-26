@@ -1,0 +1,20 @@
+<h1>Posts</h1>
+
+<!-- implementing pagination with a partial without locals -->
+<%= render '/posts/pagination' %>
+
+<div class="list-group">
+	<% @posts.each do |post| %>
+		<% is_active = current_page? post_path(post) %>
+		<a  href="<%= post_path(post) %>"
+		    class="list-group-item list-group-item-action <%= 'active' if is_active %>"
+		    <%= 'aria-current="true"' if is_active %>
+		    >
+		  <p class="mb-1 fw-bold"><%= post.title %></p>
+		  <p class="mb-1"><small><%= l post.created_at, format: '%y-%m-%d' %></small></p>
+		  <p class="mb-1 fw-bold text-dark"><small><%= post.user.name %></small></p>
+		</a>
+	<% end %>
+</div>
+
+<%= render '/posts/pagination' %>

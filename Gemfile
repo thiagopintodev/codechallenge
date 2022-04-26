@@ -30,10 +30,12 @@ end
 
 group :test do
   gem "capybara", "~> 3.36"
+  gem "selenium-webdriver", "~> 4.1"
+  gem "launchy", "~> 2.5"
 end
 
 gem "devise", "~> 4.8"
 
-
-
 gem "importmap-rails", "~> 1.0"
+
+

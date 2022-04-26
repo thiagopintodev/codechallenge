@@ -3,7 +3,10 @@
 class DeviseCreateUsers < ActiveRecord::Migration[7.0]
   def change
     create_table :users do |t|
-      t.string :name
+      ## Custom columns
+      t.string  :name
+      t.integer :posts_count,    default: 0
+      t.integer :comments_count, default: 0
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""

@@ -1,0 +1,11 @@
+var comments = document.getElementById('comments');
+var button = document.getElementById("before_comment_<%= params[:before] %>");
+comments.removeChild(button);
+
+var html = "<%= j render '/comments/index' %>";
+comments.insertAdjacentHTML('BeforeEnd', html);
+
+<% if @before_comment_id %>
+var html = "<%= j render '/comments/before_comment' %>";
+comments.insertAdjacentHTML('BeforeEnd', html);
+<% end -%>

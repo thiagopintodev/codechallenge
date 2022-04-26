@@ -1,0 +1,16 @@
+<div id="<%= dom_id comment %>">
+  <p>
+    <strong>User:</strong>
+    <%= link_to comment.user.name, comment.user %>
+  </p>
+
+  <p>
+    <strong>Title:</strong>
+    <%= comment.title %>
+  </p>
+
+  <p>
+    <strong>Body:</strong>
+    <%= comment.body %>
+  </p>
+</div>

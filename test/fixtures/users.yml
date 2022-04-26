@@ -5,9 +5,12 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
+  id: 1
   name: One
   email: one@rails7.com
   encrypted_password: <%= User.new.send(:password_digest, 'rails7rocks') %>
-#
-# two: {}
-# column: value
+two:
+  id: 2
+  name: Two
+  email: two@rails7.com
+  encrypted_password: <%= User.new.send(:password_digest, 'rails7rocks') %>

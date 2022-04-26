@@ -23,10 +23,14 @@ class ActionDispatch::IntegrationTest
   # Make `assert_*` methods behave like Minitest assertions
   include Capybara::Minitest::Assertions
 
+  setup do
+    Capybara.default_driver = :selenium_headless
+  end
+
   # Reset sessions and driver between tests
   teardown do
     Capybara.reset_sessions!
-    Capybara.use_default_driver
+    # Capybara.use_default_driver
   end
 end
 
@@ -44,7 +48,7 @@ class ActionDispatch::IntegrationTest
   def sign_in(user)
     # Given I'm a guest
     visit root_path
-    assert_text "Guest#root"
+    assert_i_am_a_guest
 
     # When I log in
     click_link "Log in"
@@ -56,6 +60,20 @@ class ActionDispatch::IntegrationTest
 
     # Then I should be a user
     assert_text "Signed in successfully."
-    assert_text "User#root"
+    assert_i_am_a_user
+  end
+
+  def assert_i_am_a_guest
+    assert_link "Log in"
+    assert_link "Sign up"
+    assert_link "Forgot your password?"
+    refute_link "Sign out"
+  end
+
+  def assert_i_am_a_user
+    refute_link "Log in"
+    refute_link "Sign up"
+    refute_link "Forgot your password?"
+    assert_link "Sign out"
   end
 end

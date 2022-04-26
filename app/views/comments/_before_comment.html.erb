@@ -1,0 +1,6 @@
+<%= link_to	"Fetch Older Comments",
+			"#",
+			id: "before_comment_#{@before_comment_id}",
+			class: 'btn btn-secondary',
+			onclick: "DeviatingInAComprehensibleMaintainableWay.fetch_modal('#{post_comments_path(@post, :js, before: @before_comment_id)}'); return false;"
+			%>

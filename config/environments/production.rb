@@ -3,6 +3,23 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  if (value = ENV['DOMAIN']).present?
+    config.action_mailer.default_url_options = { :host => value }
+  end
+
+  if (values = ENV['MAILTRAP_USERPASS']).present?
+    user, password = values.split(':')
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :user_name => user,
+      :password => password,
+      :address => 'smtp.mailtrap.io',
+      :domain => 'smtp.mailtrap.io',
+      :port => '2525',
+      :authentication => :cram_md5
+    }
+  end
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
